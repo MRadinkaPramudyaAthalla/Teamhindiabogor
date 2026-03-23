@@ -53,15 +53,40 @@ function countUp(el, target, sfx='') {
   }
   requestAnimationFrame(step);
 }
+
+let statsTriggered = false;
+function triggerStats() {
+  if (statsTriggered) return;
+  statsTriggered = true;
+  countUp(document.getElementById('s1'), 3000, '+');
+  countUp(document.getElementById('s2'), 1600, '+');
+  countUp(document.getElementById('s3'), 15, '+');
+}
+
 const sObs = new IntersectionObserver(es => {
   if(es[0].isIntersecting) {
-    countUp(document.getElementById('s1'), 3000, '+');
-    countUp(document.getElementById('s2'), 1600, '+');
-    countUp(document.getElementById('s3'), 15, '+');
+    triggerStats();
     sObs.disconnect();
   }
-}, {threshold:.5});
-sObs.observe(document.getElementById('s1'));
+}, {threshold: 0.1});
+const s1El = document.getElementById('s1');
+sObs.observe(s1El);
+
+// Fallback: jika elemen stats sudah visible saat halaman load (hero section langsung terlihat)
+function checkStatsVisible() {
+  const rect = s1El.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    triggerStats();
+    sObs.disconnect();
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', checkStatsVisible);
+} else {
+  // DOM sudah siap
+  setTimeout(checkStatsVisible, 100);
+}
 
 // Bubbles
 const bc = document.getElementById('bubbles');
