@@ -684,3 +684,189 @@
   border-color: #2563eb;
   color: white;
 }
+
+/* ══════════════════════════════════════════════════════
+   📱 RESPONSIVE - ALL DEVICES
+   Extra Small  : < 480px   (HP kecil)
+   Small        : 480–640px (HP besar)
+   Medium       : 641–768px (Tablet portrait)
+   Large        : 769–1024px(Tablet landscape / laptop kecil)
+   XL           : 1025–1280px
+   2XL          : > 1280px
+   ══════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────
+   BASE — berlaku semua ukuran
+──────────────────────────────────────── */
+html { font-size: 16px }
+img, video, iframe { max-width: 100%; height: auto; display: block }
+* { box-sizing: border-box }
+
+/* ────────────────────────────────────────
+   XS — HP kecil  (< 480px)
+──────────────────────────────────────── */
+@media (max-width: 479px) {
+  html { font-size: 14px }
+
+  /* layout */
+  section { padding-left: .875rem !important; padding-right: .875rem !important }
+  .container, [class*="container"] { width: 100% !important; padding-left: .875rem !important; padding-right: .875rem !important }
+
+  /* typography */
+  h1 { font-size: 1.6rem !important; line-height: 1.25 !important; word-break: break-word }
+  h2 { font-size: 1.35rem !important; line-height: 1.3 !important }
+  h3 { font-size: 1.15rem !important }
+  p  { font-size: .9rem !important; line-height: 1.6 !important }
+
+  /* nav */
+  nav { padding-left: .875rem !important; padding-right: .875rem !important }
+
+  /* galeri grid */
+  #gg { grid-template-columns: 1fr !important; gap: .5rem !important }
+  #gg .gitem { height: 11rem !important }
+
+  /* music player */
+  #musicPlayerContainer { right: 8px; left: 8px; width: auto; max-width: none; top: 70px }
+  .music-player { padding: 12px 14px }
+  .mp-album-cover { width: 90px; height: 90px }
+  .mp-song-title { font-size: .9rem }
+  .mp-controls { gap: 6px }
+  .mp-btn { width: 34px; height: 34px; font-size: .9rem }
+  .mp-btn-play { width: 44px; height: 44px; font-size: 1.1rem }
+
+  /* saran kategori wrapping */
+  .saran-cat { font-size: .75rem; padding: .35rem .8rem }
+
+  /* card/glass */
+  .glass { border-radius: 12px !important }
+
+  /* bubbles — sembunyikan di HP kecil */
+  .bubble { display: none !important }
+
+  /* orbit ring */
+  .orbit-ring { display: none !important }
+}
+
+/* ────────────────────────────────────────
+   SM — HP besar  (480px – 640px)
+──────────────────────────────────────── */
+@media (min-width: 480px) and (max-width: 640px) {
+  html { font-size: 15px }
+
+  section { padding-left: 1rem !important; padding-right: 1rem !important }
+
+  h1 { font-size: 1.75rem !important; word-break: break-word }
+  h2 { font-size: 1.45rem !important }
+  h3 { font-size: 1.2rem !important }
+
+  #gg { grid-template-columns: 1fr 1fr !important; gap: .6rem !important }
+  #gg .gitem { height: 10rem !important }
+
+  #musicPlayerContainer { right: 10px; left: 10px; width: auto; max-width: none }
+  .music-player { padding: 14px 16px }
+  .mp-controls { gap: 8px }
+  .mp-btn { width: 38px; height: 38px; font-size: 1rem }
+  .mp-btn-play { width: 48px; height: 48px; font-size: 1.2rem }
+
+  .bubble { display: none !important }
+}
+
+/* ────────────────────────────────────────
+   MD — Tablet portrait  (641px – 768px)
+──────────────────────────────────────── */
+@media (min-width: 641px) and (max-width: 768px) {
+  html { font-size: 15px }
+
+  section { padding-left: 1.5rem !important; padding-right: 1.5rem !important }
+
+  h1 { font-size: 2rem !important }
+  h2 { font-size: 1.6rem !important }
+
+  #gg { grid-template-columns: repeat(2, 1fr) !important; gap: .75rem !important }
+  #gg .gitem { height: 11rem !important }
+
+  #musicPlayerContainer { width: 300px; right: 16px }
+
+  .bubble { display: none !important }
+}
+
+/* ────────────────────────────────────────
+   LG — Tablet landscape / laptop  (769px – 1024px)
+──────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html { font-size: 15.5px }
+
+  section { padding-left: 2rem !important; padding-right: 2rem !important }
+
+  h1 { font-size: 2.25rem !important }
+  h2 { font-size: 1.75rem !important }
+
+  #gg { grid-template-columns: repeat(3, 1fr) !important; gap: .875rem !important }
+  #gg .gitem { height: 12rem !important }
+
+  #musicPlayerContainer { width: 320px; right: 18px }
+}
+
+/* ────────────────────────────────────────
+   XL  (1025px – 1280px)
+──────────────────────────────────────── */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  html { font-size: 16px }
+
+  section { padding-left: 3rem !important; padding-right: 3rem !important }
+
+  #gg { grid-template-columns: repeat(3, 1fr) !important }
+}
+
+/* ────────────────────────────────────────
+   2XL — desktop lebar  (> 1280px)
+──────────────────────────────────────── */
+@media (min-width: 1281px) {
+  section { padding-left: 4rem !important; padding-right: 4rem !important }
+
+  #gg { grid-template-columns: repeat(4, 1fr) !important }
+}
+
+/* ────────────────────────────────────────
+   UTILS TAMBAHAN (semua ukuran)
+──────────────────────────────────────── */
+/* teks jangan overflow */
+h1, h2, h3, h4, h5, h6, p, span, a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* flex/grid children tidak overflow */
+.flex-wrap-resp { flex-wrap: wrap !important }
+
+/* galeri item min-height agar tidak terlalu gepeng di landscape */
+.gitem { min-height: 8rem }
+
+/* lightbox full-screen di HP */
+@media (max-width: 640px) {
+  #lb-inner { max-width: 96vw; max-height: 75vh }
+  #lb-inner img { max-height: 75vh; border-radius: 10px }
+}
+
+/* marquee — kurangi kecepatan di HP agar terbaca */
+@media (max-width: 640px) {
+  .mtrack { animation-duration: 14s }
+}
+
+/* input & tombol — touch target minimal 44px */
+@media (max-width: 768px) {
+  .fi { padding: .75rem 1rem; font-size: 1rem; min-height: 44px }
+  .gf { padding: .5rem 1.1rem; min-height: 36px }
+  .saran-cat { min-height: 36px }
+  .mp-btn { min-width: 44px; min-height: 44px }
+}
+
+/* timeline line — center di mobile */
+@media (max-width: 640px) {
+  .tl-line { margin-left: auto !important; margin-right: auto !important }
+}
+
+/* avatar ring — sedikit lebih kecil di HP */
+@media (max-width: 480px) {
+  .av-ring { width: 100px; height: 100px }
+}
